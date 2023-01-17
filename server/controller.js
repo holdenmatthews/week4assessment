@@ -1,5 +1,7 @@
 let globalId = 0
 
+const items = {}
+
 module.exports = {
 
     getCompliment: (req, res) => {
@@ -40,20 +42,17 @@ module.exports = {
     },
 
     addFood: (req, res) => {
-        const { foodItem } = req.body
+        const { food } = req.body
 
-        items.push({id: globalId, ...req.body})
+        items[globalId] = food
         globalId++
+        console.log(globalId)
         res.status(200).send(items)
     },
 
     deleteFood: (req, res) => {
-        const { id } = req.params
-        items.forEach((foodItem, i) => {
-            if (foodItem.id === +id) {
-                items.splice(i, 1)
-            }
-        })
+        delete items[req.params.id]
+
         res.status(200).send(items)
     }
 
