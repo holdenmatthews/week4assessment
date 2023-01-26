@@ -54,6 +54,15 @@ module.exports = {
         delete items[req.params.id]
 
         res.status(200).send(items)
+    },
+
+    editFood: (req, res) => {
+        const food = req.body.food
+        const id = req.params.id
+
+        items[id] = food
+
+        res.status(200).send(items)
     }
 
 }
