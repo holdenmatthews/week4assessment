@@ -5,28 +5,28 @@ const nameBtn = document.getElementById("nameButton");
 const foodField = document.getElementById("food-item");
 
 const getCompliment = () => {
-  axios.get("http://localhost:4000/api/compliment/").then((res) => {
+  axios.get("/api/compliment/").then((res) => {
     const data = res.data;
     alert(data);
   });
 };
 
 const getFortune = () => {
-  axios.get("http://localhost:4000/api/fortune/").then((res) => {
+  axios.get("/api/fortune/").then((res) => {
     const data = res.data;
     alert(data);
   });
 };
 
 const getColor = () => {
-  axios.get("http://localhost:4000/api/color/").then((res) => {
+  axios.get("/api/color/").then((res) => {
     const data = res.data;
     alert(data);
   });
 };
 
 const getName = () => {
-  axios.get("http://localhost:4000/api/name/").then((res) => {
+  axios.get("/api/name/").then((res) => {
     const data = res.data;
     alert(data);
   });
@@ -38,7 +38,7 @@ const addFood = (e) => {
   const food = e.target.value;
   if (!(e.key === "Enter")) return;
   axios
-    .post("http://localhost:4000/api/food", { food })
+    .post("/api/food", { food })
     .then((res) => {
       buildList(res);
       clearInput();
@@ -50,7 +50,7 @@ const addFood = (e) => {
 
 const deleteFood = (id) => {
   axios
-    .delete(`http://localhost:4000/api/food/${id}`)
+    .delete(`/api/food/${id}`)
     .then((res) => {
       buildList(res);
     })
@@ -67,7 +67,7 @@ const editFood = (id) => {
   input.addEventListener("keypress", (e) => {
     const food = e.target.value;
     if (!(e.key === "Enter")) return;
-    axios.put(`http://localhost:4000/api/food/${id}`, { food })
+    axios.put(`/api/food/${id}`, { food })
 
       .then((res) => {
        
