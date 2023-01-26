@@ -11,6 +11,7 @@ module.exports = {
         let randomIndex = Math.floor(Math.random() * compliments.length);
         let randomCompliment = compliments[randomIndex];
       
+        rollbar.info('Someone requested a compliment.')
         res.status(200).send(randomCompliment);
     },
 
@@ -20,6 +21,7 @@ module.exports = {
         let randomIndex = Math.floor(Math.random() * fortunes.length)
         let randomFortune = fortunes[randomIndex]
 
+        rollbar.info('Someone requested a fortune.')
         res.status(200).send(randomFortune)
     },
 
@@ -28,7 +30,8 @@ module.exports = {
       
         let randomIndex = Math.floor(Math.random() * colors.length);
         let randomColor = colors[randomIndex];
-      
+   
+        rollbar.info('Someone requested a color.')
         res.status(200).send(randomColor);
     },
 
@@ -38,6 +41,7 @@ module.exports = {
         let randomIndex = Math.floor(Math.random() * names.length);
         let randomName = names[randomIndex];
       
+        rollbar.info('Someone requested a name.')
         res.status(200).send(randomName);
     },
 
