@@ -7,7 +7,7 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use(express.static(`${__dirname}/client`))
+app.use(express.static(`${__dirname}/../client`))
 
 const { getCompliment, getFortune, getColor, getName, addFood, deleteFood, editFood } = require('./controller')
 
